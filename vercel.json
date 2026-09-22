@@ -1,0 +1,12 @@
+{
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/menu.pdf",
+      "headers": [
+        { "key": "Content-Disposition", "value": "inline; filename=\"Menu-Gorditas-Becerras-Ranch.pdf\"" },
+        { "key": "Cache-Control", "value": "public, max-age=3600, must-revalidate" }
+      ]
+    }
+  ]
+}
