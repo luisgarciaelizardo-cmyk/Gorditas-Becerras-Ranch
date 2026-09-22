@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gorditas Becerra's Ranch</title>
+  <meta name="description" content="Gorditas Becerra's Ranch — gorditas con sabor de rancho. Sucursales Colosio y Sur. Pide por WhatsApp.">
+  <meta name="theme-color" content="#5c0a0e">
+  <meta property="og:title" content="Gorditas Becerra's Ranch">
+  <meta property="og:description" content="Consulta nuestro menú y pide por WhatsApp a sucursal Colosio o Sur.">
+  <meta property="og:image" content="/assets/logo.png">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/rye.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <style>
+    :root {
+      --maroon-900: #140707;
+      --maroon-800: #2a0a0c;
+      --maroon-700: #4a0b0f;
+      --maroon-600: #6e1016;
+      --maroon-500: #8e1a20;
+      --silver: #ecebe8;
+      --silver-dim: #bdb6b0;
+      --cream: #efe6da;
+      --wood: #7a4a2a;
+      --wood-dark: #4a2a15;
+      --whatsapp: #25d366;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      font-family: "Oswald", "Arial Narrow", sans-serif;
+      color: var(--silver);
+      background: var(--maroon-900);
+      background-image: radial-gradient(ellipse at 50% 30%, var(--maroon-600) 0%, var(--maroon-700) 35%, var(--maroon-800) 65%, var(--maroon-900) 100%);
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px 24px;
+    }
+
+    main {
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 1;
+    }
+
+    .logo {
+      width: min(62vw, 240px);
+      height: auto;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(236, 235, 232, .08), 0 18px 50px rgba(0, 0, 0, .55);
+      animation: rise .7s ease-out both;
+    }
+
+    h1 {
+      font-family: "Rye", Georgia, serif;
+      font-weight: 400;
+      font-size: clamp(1.7rem, 7vw, 2.3rem);
+      line-height: 1.1;
+      letter-spacing: .02em;
+      margin-top: 22px;
+      text-shadow: 0 2px 0 rgba(0, 0, 0, .45);
+    }
+
+    .tagline {
+      margin-top: 8px;
+      font-size: .95rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+    }
+
+    .divider {
+      width: 120px;
+      height: 10px;
+      margin: 22px auto 26px;
+      background:
+        radial-gradient(circle, var(--silver) 2px, transparent 2.5px) center / 10px 10px no-repeat,
+        linear-gradient(var(--silver-dim), var(--silver-dim)) left center / 48px 1px no-repeat,
+        linear-gradient(var(--silver-dim), var(--silver-dim)) right center / 48px 1px no-repeat;
+      opacity: .7;
+    }
+
+    .links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .section-label {
+      margin: 18px 0 2px;
+      font-size: .8rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--silver-dim);
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      min-height: 60px;
+      padding: 12px 20px;
+      border-radius: 14px;
+      border: 2px solid rgba(236, 235, 232, .85);
+      background: rgba(20, 7, 7, .35);
+      color: var(--silver);
+      text-decoration: none;
+      font-size: 1.08rem;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: transform .15s ease, background-color .15s ease, color .15s ease;
+      animation: rise .6s ease-out both;
+    }
+
+    .btn:hover, .btn:focus-visible {
+      background: var(--silver);
+      color: var(--maroon-700);
+      transform: translateY(-2px);
+    }
+
+    .btn:focus-visible { outline: 3px solid var(--silver); outline-offset: 3px; }
+
+    .btn svg { width: 26px; height: 26px; flex: none; fill: currentColor; }
+
+    .btn span { flex: 1; text-align: left; }
+
+    .btn small {
+      display: block;
+      font-size: .78rem;
+      letter-spacing: .1em;
+      opacity: .75;
+    }
+
+    .btn .arrow { width: 18px; height: 18px; opacity: .6; }
+
+    .btn-menu {
+      border-color: var(--wood-dark);
+      background: linear-gradient(180deg, #8a5634 0%, var(--wood) 55%, #683c20 100%);
+      color: var(--cream);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, .18), 0 8px 20px rgba(0, 0, 0, .35);
+    }
+
+    .btn-menu span { font-family: "Rye", Georgia, serif; font-weight: 400; font-size: 1.15rem; letter-spacing: .06em; }
+
+    .btn-menu:hover, .btn-menu:focus-visible { background: var(--cream); color: var(--wood-dark); }
+
+    .btn-wa svg:first-child { color: var(--whatsapp); }
+    .btn-wa:hover svg:first-child, .btn-wa:focus-visible svg:first-child { color: #128c4a; }
+
+    .links > :nth-child(1) { animation-delay: .1s; }
+    .links > :nth-child(2) { animation-delay: .15s; }
+    .links > :nth-child(3) { animation-delay: .2s; }
+    .links > :nth-child(4) { animation-delay: .25s; }
+    .links > :nth-child(5) { animation-delay: .3s; }
+    .links > :nth-child(6) { animation-delay: .35s; }
+    .links > :nth-child(7) { animation-delay: .4s; }
+
+    footer {
+      margin-top: 40px;
+      font-size: .8rem;
+      letter-spacing: .12em;
+      color: var(--silver-dim);
+      opacity: .7;
+      text-align: center;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .logo, .btn { animation: none; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="/assets/logo.png" alt="Logo de Gorditas Becerra's Ranch" width="512" height="512">
+    <h1>Gorditas<br>Becerra's Ranch</h1>
+    <p class="tagline">Sabor de rancho</p>
+    <div class="divider" aria-hidden="true"></div>
+
+    <nav class="links" aria-label="Enlaces">
+      <a class="btn btn-menu" href="/menu.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm8 1.5V8h4.5L14 3.5ZM7 12h10v1.6H7V12Zm0 3.5h10v1.6H7v-1.6Zm0-7h5v1.6H7V8.5Z"/></svg>
+        <span>Ver menú</span>
+        <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7-1.4-1.4 5.6-5.6-5.6-5.6z"/></svg>
+      </a>
+
+      <p class="section-label">Pide por WhatsApp</p>
+
+      <a class="btn btn-wa" href="https://wa.me/528444930415?text=Hola%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 5.83 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.02 2.57.12.17 1.76 2.68 4.25 3.76.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+        <span>Sucursal Colosio<small>844 493 0415</small></span>
+        <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7-1.4-1.4 5.6-5.6-5.6-5.6z"/></svg>
+      </a>
+
+      <a class="btn btn-wa" href="https://wa.me/528442740249?text=Hola%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.85 9.85 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 5.83 2.42 8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.8-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48a.92.92 0 0 0-.67.31c-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.02 2.57.12.17 1.76 2.68 4.25 3.76.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+        <span>Sucursal Sur<small>844 274 0249</small></span>
+        <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7-1.4-1.4 5.6-5.6-5.6-5.6z"/></svg>
+      </a>
+
+      <p class="section-label">Síguenos</p>
+
+      <a class="btn" href="https://www.instagram.com/gorditasbecerrasranch?stkn=MXY4cGZ5Zm16NXdzcw==" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.5.01-4.74.07-.98.04-1.51.21-1.86.34-.47.18-.8.4-1.15.75-.35.35-.57.68-.75 1.15-.13.35-.3.88-.34 1.86C3.1 8.5 3.1 8.85 3.1 12s0 3.5.06 4.74c.04.98.21 1.51.34 1.86.18.47.4.8.75 1.15.35.35.68.57 1.15.75.35.13.88.3 1.86.34 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.98-.04 1.51-.21 1.86-.34.47-.18.8-.4 1.15-.75.35-.35.57-.68.75-1.15.13-.35.3-.88.34-1.86.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.04-.98-.21-1.51-.34-1.86a3.1 3.1 0 0 0-.75-1.15 3.1 3.1 0 0 0-1.15-.75c-.35-.13-.88-.3-1.86-.34C15.5 4.01 15.15 4 12 4Zm0 3.05a4.95 4.95 0 1 1 0 9.9 4.95 4.95 0 0 1 0-9.9Zm0 8.1a3.15 3.15 0 1 0 0-6.3 3.15 3.15 0 0 0 0 6.3Zm6.3-8.3a1.16 1.16 0 1 1-2.32 0 1.16 1.16 0 0 1 2.32 0Z"/></svg>
+        <span>Instagram<small>@gorditasbecerrasranch</small></span>
+        <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7-1.4-1.4 5.6-5.6-5.6-5.6z"/></svg>
+      </a>
+
+      <a class="btn" href="https://www.facebook.com/share/1DgesJf57v/?mibextid=wwXIfr" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.9h-2.34V22c4.78-.76 8.43-4.92 8.43-9.94Z"/></svg>
+        <span>Facebook<small>Gorditas Becerra's Ranch</small></span>
+        <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7-1.4-1.4 5.6-5.6-5.6-5.6z"/></svg>
+      </a>
+    </nav>
+  </main>
+
+  <footer>© <span id="year">2026</span> Gorditas Becerra's Ranch · Saltillo, Coah.</footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
