@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menú · Gorditas Becerra's Ranch</title>
+  <meta name="description" content="Menú de Gorditas Becerra's Ranch: gorditas desde $25, bebidas, brownie y empanadas.">
+  <meta name="theme-color" content="#4e2d18">
+  <meta property="og:title" content="Menú · Gorditas Becerra's Ranch">
+  <meta property="og:image" content="/assets/logo.png">
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="preload" href="/assets/fonts/rye.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <style>
+    :root {
+      --paper: #efe8de;
+      --ink: #4a2615;
+      --ink-soft: #6b4a36;
+      --wood-1: #6b4125;
+      --wood-2: #4e2d18;
+      --wood-3: #82522f;
+      --whatsapp: #25d366;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Cinzel", Georgia, serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Tablones de madera */
+    .wood {
+      background:
+        repeating-linear-gradient(180deg, transparent 0 54px, rgba(0,0,0,.35) 54px 56px),
+        repeating-linear-gradient(92deg, rgba(255,255,255,.05) 0 3px, transparent 3px 11px, rgba(0,0,0,.07) 11px 13px, transparent 13px 29px),
+        repeating-linear-gradient(88deg, transparent 0 40px, rgba(0,0,0,.06) 40px 44px, transparent 44px 97px),
+        linear-gradient(180deg, var(--wood-3), var(--wood-1) 40%, var(--wood-2));
+      color: #fff;
+    }
+
+    header {
+      position: relative;
+      padding: 52px 16px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(14px, 4vw, 26px);
+      box-shadow: 0 4px 10px rgba(0,0,0,.35);
+    }
+
+    .back {
+      position: absolute;
+      top: 10px; left: 10px;
+      display: flex; align-items: center; gap: 4px;
+      padding: 6px 10px 6px 6px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.25);
+      color: #f4ece2;
+      font-family: "Oswald", sans-serif;
+      font-size: .8rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .back:hover, .back:focus-visible { background: rgba(0,0,0,.45); }
+    .back svg { width: 18px; height: 18px; fill: currentColor; }
+
+    header img {
+      width: clamp(92px, 26vw, 142px);
+      height: auto;
+      border-radius: 50%;
+      border: 3px solid #f4f2ee;
+      box-shadow: 0 4px 12px rgba(0,0,0,.5);
+    }
+
+    .brand {
+      font-family: "Rye", serif;
+      text-align: center;
+      line-height: .95;
+      text-shadow: 0 3px 0 #1c0d05, 0 0 1px #1c0d05;
+    }
+    .brand .s { font-size: clamp(1rem, 4.4vw, 1.6rem); letter-spacing: .04em; }
+    .brand .l { font-size: clamp(1.8rem, 8.4vw, 3.1rem); letter-spacing: .02em; }
+
+    main {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 26px 16px 40px;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .cactus {
+      position: absolute; right: -20px; bottom: 0;
+      width: min(52%, 330px);
+      opacity: .2;
+      pointer-events: none;
+    }
+
+    section { position: relative; }
+    section + section { margin-top: 34px; }
+
+    h1, h2 {
+      font-family: "Rye", serif;
+      font-weight: 400;
+      font-size: clamp(2.2rem, 10vw, 3.1rem);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: .02em;
+    }
+    h1 svg, h2 svg { width: 1.15em; height: 1.15em; flex: none; }
+
+    .group {
+      display: grid;
+      grid-template-columns: 1fr 14px auto;
+      align-items: center;
+      gap: 0 10px;
+      margin-top: 14px;
+      padding-left: clamp(0px, 5vw, 48px);
+    }
+
+    ul { list-style: none; }
+
+    li, .extra {
+      font-size: clamp(.95rem, 3.9vw, 1.2rem);
+      font-weight: 500;
+      line-height: 1.5;
+      padding-left: 18px;
+      position: relative;
+      text-transform: uppercase;
+    }
+    li::before, .extra::before {
+      content: "";
+      position: absolute; left: 2px; top: calc(.75em - 3px);
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--ink);
+    }
+    li small { display: block; font-size: .85em; color: var(--ink-soft); }
+
+    .brace {
+      align-self: stretch;
+      border: 3px solid var(--ink);
+      border-left: none;
+      border-radius: 0 18px 18px 0;
+      margin: 6px 0;
+      position: relative;
+    }
+    .brace::after {
+      content: "";
+      position: absolute; right: -11px; top: 50%;
+      width: 9px; height: 3px; background: var(--ink);
+      transform: translateY(-50%);
+    }
+
+    /* Letrero de precio colgado */
+    .tag { position: relative; width: clamp(84px, 22vw, 116px); aspect-ratio: 116 / 150; }
+    .tag svg { position: absolute; top: 0; left: 0; width: 100%; height: 40%; }
+    .tag .sign {
+      position: absolute; left: 3%; right: 3%; top: 29%; bottom: 4%;
+      border-radius: 50%;
+      background:
+        repeating-radial-gradient(ellipse at 40% 45%, rgba(0,0,0,0) 0 5px, rgba(0,0,0,.09) 5px 6px),
+        radial-gradient(circle at 40% 35%, #a8683a, #7b4524 70%, #5b3018);
+      border: 3px solid #4a2612;
+      box-shadow: 0 5px 8px rgba(0,0,0,.35), inset 0 0 0 4px rgba(0,0,0,.12);
+      display: flex; align-items: center; justify-content: center;
+      font-family: "Rye", serif;
+      font-size: clamp(1.4rem, 6vw, 2rem);
+      color: #fff;
+      text-shadow: 0 2px 0 #3a1c0a;
+    }
+
+    .extra {
+      display: flex;
+      align-items: baseline;
+      margin: 16px 0 0 clamp(0px, 5vw, 48px);
+      max-width: 460px;
+    }
+    .extra .dots { flex: 1; border-bottom: 2px dotted var(--ink-soft); margin: 0 6px; min-width: 20px; }
+
+    footer {
+      padding: 18px 16px 22px;
+      box-shadow: 0 -4px 10px rgba(0,0,0,.3);
+      font-family: "Oswald", sans-serif;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    footer p {
+      font-size: 1.1rem;
+      letter-spacing: .08em;
+      text-shadow: 0 2px 0 rgba(0,0,0,.5);
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    footer p svg { width: 30px; height: 30px; }
+    .order {
+      max-width: 520px;
+      margin: 12px auto 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .order a {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 54px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: #f4ece2;
+      color: var(--wood-2);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      line-height: 1.1;
+      box-shadow: 0 3px 0 rgba(0,0,0,.35);
+      transition: transform .15s ease;
+    }
+    .order a:hover, .order a:focus-visible { transform: translateY(-2px); }
+    .order a:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+    .order svg { width: 26px; height: 26px; flex: none; }
+    .order small { display: block; font-size: .78rem; font-weight: 500; opacity: .8; }
+
+    @media (max-width: 360px) {
+      .order { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .order a { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wood">
+    <a class="back" href="/">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7 1.4-1.4-5.6-5.6 5.6-5.6z"/></svg>
+      Inicio
+    </a>
+    <img src="/assets/logo.png" alt="Logo de Gorditas Becerra's Ranch" width="512" height="512">
+    <div class="brand" aria-hidden="true">
+      <div class="s">Gorditas</div>
+      <div class="l">Becerra's</div>
+      <div class="l">Ranch</div>
+    </div>
+  </header>
+
+  <main>
+    <svg class="cactus" viewBox="0 0 300 520" aria-hidden="true">
+      <g fill="none" stroke="#6d6d6d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M150 510V120c0-30 40-30 40 0v390"/>
+        <path d="M150 300h-40c-18 0-25-10-25-28V190c0-24-34-24-34 0v92c0 38 22 58 55 58h44"/>
+        <path d="M190 250h36c14 0 20-8 20-22v-64c0-24 34-24 34 0v70c0 36-22 54-52 54h-38"/>
+        <path d="M40 510V380c0-22 28-22 28 0v130"/>
+        <path d="M40 440H22c-10 0-14-6-14-16v-28c0-16 22-16 22 0v20"/>
+        <path d="M160 160v40M176 150v50M160 240v60M176 260v70M160 350v60M176 380v60M52 400v40"/>
+        <path d="M0 512h300" stroke-width="4"/>
+        <path d="M90 512c6-14 10-14 16 0M220 512c6-12 12-14 18 0M250 512c4-8 8-10 12 0"/>
+      </g>
+    </svg>
+
+    <section aria-labelledby="gorditas">
+      <h1 id="gorditas">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 8c-6 10-8 20-6 30 3 13 13 20 24 20s21-7 24-20c2-10 0-20-6-30" fill="none" stroke="#5b3a28" stroke-width="7" stroke-linecap="round"/><path d="M14 8c-6 10-8 20-6 30 3 13 13 20 24 20s21-7 24-20c2-10 0-20-6-30" fill="none" stroke="#efe8de" stroke-width="2" stroke-dasharray="1 6" stroke-linecap="round"/></svg>
+        Gorditas
+      </h1>
+
+      <div class="group">
+        <ul>
+          <li>Picadillo</li>
+          <li>Carnitas</li>
+          <li>Chicharrón prensado</li>
+          <li>Deshebrada</li>
+          <li>Chicharrón en salsa verde</li>
+          <li>Quesadilla</li>
+          <li>Del Jefe<small>(jocoque con huevo en chile colorado)</small></li>
+          <li>Frijoles con queso</li>
+        </ul>
+        <div class="brace" aria-hidden="true"></div>
+        <div class="tag">
+          <svg viewBox="0 0 116 60" preserveAspectRatio="none" aria-hidden="true"><path d="M14 56 58 8 102 56" fill="none" stroke="#b58a52" stroke-width="4"/><path d="M14 56 58 8 102 56" fill="none" stroke="#7a5a2e" stroke-width="4" stroke-dasharray="3 4"/><circle cx="58" cy="7" r="6" fill="#6b3a1e"/></svg>
+          <div class="sign">$27</div>
+        </div>
+      </div>
+
+      <div class="group">
+        <ul>
+          <li>Huevo con chorizo</li>
+          <li>Huevo con salsa</li>
+          <li>Nopalitos</li>
+          <li>Papas con chile colorado</li>
+          <li>Queso con rajas</li>
+        </ul>
+        <div class="brace" aria-hidden="true"></div>
+        <div class="tag">
+          <svg viewBox="0 0 116 60" preserveAspectRatio="none" aria-hidden="true"><path d="M14 56 58 8 102 56" fill="none" stroke="#b58a52" stroke-width="4"/><path d="M14 56 58 8 102 56" fill="none" stroke="#7a5a2e" stroke-width="4" stroke-dasharray="3 4"/><circle cx="58" cy="7" r="6" fill="#6b3a1e"/></svg>
+          <div class="sign">$25</div>
+        </div>
+      </div>
+
+      <p class="extra"><span>Ingrediente adicional</span><span class="dots"></span><span>$6</span></p>
+    </section>
+
+    <section aria-labelledby="bebidas">
+      <h2 id="bebidas">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M4 40c8 6 20 8 28 8s20-2 28-8c-6 0-10-2-12-6l-3-14c-1-5-5-7-9-5l-4 2-4-2c-4-2-8 0-9 5l-3 14c-2 4-6 6-12 6Z" fill="#8a5a38" stroke="#4a2615" stroke-width="2.5" stroke-linejoin="round"/><path d="M17 33c9 3 21 3 30 0" fill="none" stroke="#4a2615" stroke-width="3"/></svg>
+        Bebidas
+      </h2>
+
+      <div class="group">
+        <ul>
+          <li>Agua embotellada</li>
+          <li>Café</li>
+          <li>Refresco (botella)</li>
+          <li>Refresco (lata)</li>
+          <li>Jugo</li>
+          <li>Aguas de sabores</li>
+          <li>Brownie</li>
+        </ul>
+        <div class="brace" aria-hidden="true"></div>
+        <div class="tag">
+          <svg viewBox="0 0 116 60" preserveAspectRatio="none" aria-hidden="true"><path d="M14 56 58 8 102 56" fill="none" stroke="#b58a52" stroke-width="4"/><path d="M14 56 58 8 102 56" fill="none" stroke="#7a5a2e" stroke-width="4" stroke-dasharray="3 4"/><circle cx="58" cy="7" r="6" fill="#6b3a1e"/></svg>
+          <div class="sign">$35</div>
+        </div>
+      </div>
+
+      <p class="extra"><span>Empanada</span><span class="dots"></span><span>$17</span></p>
+    </section>
+  </main>
+
+  <footer class="wood">
+    <p>
+      <svg viewBox="0 0 48 48" aria-hidden="true"><g fill="currentColor"><circle cx="12" cy="36" r="6"/><circle cx="37" cy="36" r="6"/><path d="M6 30h20l4-10h6l6 10v4h-4a8 8 0 0 0-10 0H18a8 8 0 0 0-12-4Z"/><rect x="4" y="16" width="14" height="12" rx="2"/><circle cx="28" cy="9" r="4"/><path d="M24 14h6l3 6h-8Z"/></g></svg>
+      Pídelas a domicilio
+    </p>
+    <div class="order">
+      <a href="https://wa.me/528444930415?text=Hola%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#25d366"/><path fill="#fff" d="M12.04 4.6a7.3 7.3 0 0 0-6.3 11.04l-.98 3.6 3.7-.97a7.3 7.3 0 1 0 3.58-13.67Zm4.3 10.36c-.18.5-1.05.96-1.46 1-.37.05-.84.07-1.36-.09a12 12 0 0 1-1.23-.45 9.6 9.6 0 0 1-3.68-3.25c-.12-.16-.9-1.2-.9-2.29 0-1.08.57-1.61.77-1.83a.8.8 0 0 1 .58-.27h.42c.13 0 .31-.05.49.37.18.43.6 1.49.66 1.6.05.1.09.23.02.37-.07.15-.1.24-.21.37l-.32.38c-.1.1-.22.22-.1.43.13.22.56.92 1.2 1.49.83.73 1.52.96 1.74 1.07.21.1.34.09.47-.06.13-.14.54-.63.68-.85.14-.21.29-.18.49-.1.2.07 1.26.6 1.48.7.21.11.36.16.41.25.06.09.06.52-.12 1.02Z"/></svg>
+        <span>Colosio<small>844 493 0415</small></span>
+      </a>
+      <a href="https://wa.me/528442740249?text=Hola%2C%20quiero%20hacer%20un%20pedido" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#25d366"/><path fill="#fff" d="M12.04 4.6a7.3 7.3 0 0 0-6.3 11.04l-.98 3.6 3.7-.97a7.3 7.3 0 1 0 3.58-13.67Zm4.3 10.36c-.18.5-1.05.96-1.46 1-.37.05-.84.07-1.36-.09a12 12 0 0 1-1.23-.45 9.6 9.6 0 0 1-3.68-3.25c-.12-.16-.9-1.2-.9-2.29 0-1.08.57-1.61.77-1.83a.8.8 0 0 1 .58-.27h.42c.13 0 .31-.05.49.37.18.43.6 1.49.66 1.6.05.1.09.23.02.37-.07.15-.1.24-.21.37l-.32.38c-.1.1-.22.22-.1.43.13.22.56.92 1.2 1.49.83.73 1.52.96 1.74 1.07.21.1.34.09.47-.06.13-.14.54-.63.68-.85.14-.21.29-.18.49-.1.2.07 1.26.6 1.48.7.21.11.36.16.41.25.06.09.06.52-.12 1.02Z"/></svg>
+        <span>Sur<small>844 274 0249</small></span>
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
