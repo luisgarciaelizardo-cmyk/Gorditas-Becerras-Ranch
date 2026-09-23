@@ -4,7 +4,7 @@ Página web estática (sin build) para el restaurante, lista para Vercel.
 
 ```
 index.html   Página principal (logo, menú, WhatsApp, ubicaciones, Instagram, Facebook)
-menu.html    Menú completo (se abre en /menu)
+menu.html    Página del menú (se abre en /menu), muestra assets/menu.jpg
 assets/      Logo, íconos y fuentes locales
 vercel.json  URLs limpias (/menu en lugar de /menu.html)
 ```
@@ -15,7 +15,7 @@ vercel.json  URLs limpias (/menu en lugar de /menu.html)
 2. Framework Preset: **Other**. Sin comando de build ni carpeta de salida.
 3. **Deploy**.
 
-## Cambiar precios o productos
+## Cambiar el menú
 
-Edita `menu.html`: cada grupo de gorditas/bebidas es una lista `<ul>` y su
-precio está en `<div class="sign">$27</div>`.
+Reemplaza `assets/menu.jpg` por la nueva imagen del menú (mismo nombre).
+Si cambia el tamaño, actualiza `width`/`height` del `<img>` en `menu.html`.
